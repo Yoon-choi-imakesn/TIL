@@ -1,6 +1,6 @@
 # Today I Learned(TIL) Wiki
 
 
-## HTML
+## WEB
 * basic
   * [opentutorials]()
