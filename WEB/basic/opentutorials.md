@@ -59,8 +59,85 @@ a{
 ## 문법
   #### 1) 변수와 대입연산자
   #### 2) 프로퍼티(properties) ex. .length
-  #### 3) 메서드 ex. .toUpperCase()
-  
+  #### 3) 함수  
+  ##### a. 기본적인 분법  
+          ```
+          function sum(left, right) {
+            document.wirte(legt + right + '<br>');
+          }
+          sum(2,3);
+          ```
+  ##### b. 매개변수 parameter: 인자를 받아서 함수 안으로 매개하는 변수
+           ex. left, right
+  ##### c. 인자 argument: 함수로 전달하는 값
+           ex. 2, 3
+  ##### d. return 키워드
+
+## 객체  
+### 기본
+ 여기서 정리할 객체의 특성: 정리 정돈의 수단으로써의 객체  
+ 함수와 변수가 많아지면 연관된 것들을 정리 정돈하는 도구  
+  cf) 함수: 코드가 많아지면 정리 정돈하는 도구  
+  ### 객체가 담을 수 있는 대상
+  - 데이터: 문자열, 배열, 숫자 등
+  - 함수도 담을 수 있다.
+### 문법
+  #### a. 객체 생성
+  ```
+  <script>
+    // cats이라는 변수에 객체를 담는다. 
+    var cats = {
+        "우이동 고양이":"김석관",
+        "중화동 고양이":"최까루"
+     }
+    </script>
+  ```
+  #### b. 객체와 반복 (feat. key(aka. index))
+  ```
+  <script>
+    for(var key in cats) {
+       document.write(key + ' : ' + cats[key] + '<br>');
+    }
+  </script>
+  ```
+  #### c. 객체 프로퍼티와 메서드(feat. this)
+  - 메서드: 객체에 소속된 함수 ex. toUpperCase(), querySelectorAll()
+  - 프로퍼티: 객체에 소속된 변수 ex. length
+  ``` 
+  // this 적용 전
+  <script>
+    // showAll()이라는 메서드 추가
+    cats.showAll = function {
+      for(var key in cats) {
+         document.write(key + ' : ' + cats[key] + '<br>');
+      }
+    }
+    cats.showAll();
+  </script>
+  ```
+  ``` 
+  // this 적용 후
+  <script>
+    // showAll()이라는 메서드 추가
+    cats.showAll = function {
+      for(var key in this) {
+         document.write(key + ' : ' + this[key] + '<br>');
+      }
+    }
+    cats.showAll();
+  </script>
+  ```
+  ``` 
+  // 객체 선언과 동시에 메서드 생성하는 법
+var Body = {
+  setColor: function (color) {
+    document.querySelector('body').style.color = color;
+   },
+  setBackgroundColor: function (color) {
+    document.querySelector('body').style.backgroundColor = color;
+   }
+}
+  ```
  
 # 4. etc
 
