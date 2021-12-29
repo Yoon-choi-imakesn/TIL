@@ -1,11 +1,11 @@
-# HTML
+# 1. HTML
 
 ### Attribute 속성
 src="Goya.jpg", width="50%"  
 속성은 태그의 이름만으로는 정보가 부족할 때 사용됩니다.  
 
 
-# CSS
+# 2. CSS
 
 ### CSS 삽입 방법 두 가지
 a. <style> 태그  
@@ -44,4 +44,77 @@ a{
 ## 캐싱 cache: CSS 파일 사용 이유
   cache: 저장한다라는 의미. css 파일을 한번 다운로드했다면, 웹 브라우저가 해당 파일을 컴퓨터에 저장한다. 따라서 네트워크 트래픽을 훨신 더 적게 쓸 수 있다. 
   
-    
+
+# 3.JavaScript  
+
+### JS 기본 정리  
+  - JS는 HTML을 제어하는 언어이다.  
+  - 자바스크립트 코드가 와야 하는 속성 값이 존재한다 (ex. on-)  
+  
+## 이벤트  
+  - 이벤트는 자바스크립트가 사용자와 상호작용하는 데 핵심적인 역할을 합니다.
+  - *this*
+       이벤트 안에서 실행되는 코드에서 현재 코드가 속해 있는 태그를 가리키도록 약속돼 있는 특수한 키워드  
+
+## 문법
+  #### 1) 변수와 대입연산자
+  #### 2) 프로퍼티(properties) ex. .length
+  #### 3) 메서드 ex. .toUpperCase()
+  
+ 
+# 4. etc
+
+### 프로그래밍 언어
+HTML, JS 둘 다 컴퓨터 언어이지만, HTML은 프로그래밍 언어가 아닙니다.  
+프로그래밍 언어는 시간 순서에 따라 실행돼야 할 기능을 갖춘 문법으로 이루어진 컴퓨터 언어를 프로그래밍 언어라고 합니다. 
+  
+## refactoring
+  - 코드의 가독성을 높이고  
+  - 유지보수를 편리하게 만들고
+  - 중복된 코드를 줄임
+### a. this  
+  : 이벤트 안에서 실행되는 코드에서 현재 코드가 속해 있는 태그를 가리키도록 약속돼 있는 특수한 키워드
+### b. 변수
+```
+# this 적용 전
+<input id="night_day" type="button" value="night" onclick="
+  if(document.querySelector('#night_day').value=='night') {
+    document.querySelector('body').style.backgroundColor = 'black';
+    document.querySelector('body').style.color='white';
+    document.querySelector('#night_day').value = 'day';
+  } else {
+    document.querySelector('body').style.backgroundColor = 'white';
+    document.querySelector('body').style.color='black';
+    document.querySelector('#night_day').value = 'night';
+  }
+">
+  
+# this 적용 후
+<input type="button" value="night" onclick="
+  if(this.value=='night') {
+    document.querySelector('body').style.backgroundColor = 'black';
+    document.querySelector('body').style.color='white';
+    this.value = 'day';
+  } else {
+    document.querySelector('body').style.backgroundColor = 'white';
+    document.querySelector('body').style.color='black';
+    this.value = 'night';
+  }
+">
+  
+# 변수 적용 후 
+<input type="button" value="night" onclick="
+ var target = document.querySelector('body');                                          
+  if(this.value=='night') {
+    target.style.backgroundColor = 'black';
+    target.style.color='white';
+    this.value = 'day';
+  } else {
+    target.style.backgroundColor = 'white';
+    target.style.color='black';
+    this.value = 'night';
+  }
+">
+```
+  
+  
