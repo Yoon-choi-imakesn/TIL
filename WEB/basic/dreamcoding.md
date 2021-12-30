@@ -5,15 +5,15 @@
 ## 1) 태그는 두 가지로 구분 가능
 - a. box: sectionig을 도와줌
 - b. item
-  ![box&item](./box&item.png)  
-  ![sectioning1](./sectioning1.png)  
-  ![sectioning2](./sectioning2.png)  
+  ![box&item](./box&item.png){: width="70%" height="70%"}  
+  ![sectioning1](./sectioning1.png){: width="70%" height="70%"}  
+  ![sectioning2](./sectioning2.png){: width="70%" height="70%"}  
 article: 반복되는 것을 묶어줌
 
 ## 2) Tag & Element & Attribute
 element, 다른 말로 node라고도 한다.
-  ![Tag&Element](./Tag&Element.png) 
-  ![Attribute](./Attribute.png) 
+  ![Tag&Element](./Tag&Element.png){: width="70%" height="70%"} 
+  ![Attribute](./Attribute.png){: width="70%" height="70%"} 
   
 ## 3) Black & Inline
 
