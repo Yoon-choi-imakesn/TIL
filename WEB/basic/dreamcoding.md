@@ -81,7 +81,12 @@ a[href="naver.com] {
 - block: 한 줄
 
 ### 3-2) position
-
+<img src="position.png" alt="drawing" width="600"/>
+- static: 디폴트값
+- relative: 원래 있어야 하는 아이템에서 옮겨간 것
+- absolute: 내가 담겨있는 상자 안에서 움직인 것
+- fixed: 상자가 아니라, 페이지 상에서 옮겨간 것
+- sticky: 원래 자리에 있으면서 스크롤링해도 그 자리 유지
 
 
 
