@@ -4,19 +4,23 @@
 
 ## 1) 태그는 두 가지로 구분 가능
 - a. box: sectionig을 도와줌
-- b. item
-  ![box&item](./box&item.png){: width="70%" height="70%"}  
-  ![sectioning1](./sectioning1.png){: width="70%" height="70%"}  
-  ![sectioning2](./sectioning2.png){: width="70%" height="70%"}  
+- b. item  
+<img src="box&item.png" alt="drawing" width="600"/>
+<img src="sectioning1.png" alt="drawing" width="600"/>
+<img src="sectioning2.png" alt="drawing" width="600"/>
 article: 반복되는 것을 묶어줌
 
 ## 2) Tag & Element & Attribute
+<img src="Tag&Element.png" alt="drawing" width="600"/>
 element, 다른 말로 node라고도 한다.
-  ![Tag&Element](./Tag&Element.png){: width="70%" height="70%"} 
-  ![Attribute](./Attribute.png){: width="70%" height="70%"} 
+<img src="Attribute.png" alt="drawing" width="600"/>
   
 ## 3) Black & Inline
+block ex.div
+inline ex.span
 
+## 4) Input & Type
+<img src="input&type.png" alt="drawing" width="600"/>
 
 # 2. CSS
 
