@@ -93,19 +93,24 @@ a[href="naver.com] {
 - display: flex;    
 - flex-flow: column wrap;  
   - flex-direction: row/column-reverse;  
+  - <img src="row-reverse.png" width="400"/>
   - flex-wrap: nowrap/wrap-reverse;  
 - justify-content:  
   - *main axis*
-  -  flex-start/felx-end/center/**space-around/space-between/space-evenly**;       
+  -  flex-start/felx-end/center/**space-around/space-between/space-evenly**;   
+  - <img src="space-around.png" width="400"/>
+  - <img src="space-between.png" width="400"/>
+  - <img src="space-evenly.png" width="400"/>
 - align-items:  
   - *cross axis - flex line을 기준으로 아이템 정렬*   
   - flex-start/felx-end/center/**baseline**;  
   - baseline: 텍스트가 균등하게 보이도록  
+  - <img src="align-items.png" width="400"/>
 - align-content:  
   - *cross axis - flex line을 정렬*  
   - flex-start/felx-end/center/**space-around/space-between**;  
-  - align-content는 corss axis에 대한 justify-content라 이해할 수 있다. 값도 space-between 처럼 justify-content 에서 사용되는 값을 줄 수 있다.  
-  - align-content는 nowrap인 경우 사용하는 의미가 없다. nowrap은 강제로 한 줄에 그리는 것이기 때문에 flex line이 하나 뿐이기 때문이다. 반대로 align-itmes는 line이 한 줄인 경우에도 그 라인 안에서 정렬하는 것이기 때문에 작동한다.  
+  - align-content는 corss axis에 대한 justify-content라 이해할 수 있습니다.   
+  - align-content는 여러 줄들 사이의 간격을 지정하며, align-items는 컨테이너 안에서 어떻게 모든 요소들이 정렬하는지를 지정합니다. 한 줄만 있는 경우, align-content는 효과를 보이지 않습니다.    
 
 ### 4-3) item
 - flex: *grow, shrink, basis*  
