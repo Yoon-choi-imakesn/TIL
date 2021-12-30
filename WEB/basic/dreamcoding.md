@@ -22,7 +22,72 @@ inline ex.span
 ## 4) Input & Type
 <img src="input&type.png" alt="drawing" width="600"/>
 
+
 # 2. CSS
+
+## 1) 의미, 정의
+Cascading Style Sheet
+정의된 세부 사항이 있다면 그것을 쓰고, 없다면 기본 지정된 것으로 넘어간다.  
+- Author style
+- User style
+- Browser
+
+## 2) Selector
+- universal *
+- type Tag
+- ID #id
+- class .class
+- state :
+- attribute []
+
+```
+# state :
+button:hover {
+  color:red;
+}
+# attribute []
+a[href] {
+  color:green;
+}
+# attribute [] 세부적으로
+a[href="naver.com] {
+  color:green;
+}
+```
+
+### 다양한 연습 (https://flukeout.github.io/)
+- A  B/ #id  A  
+  - Descendant Selector: Select an element inside another element  
+  - Selects all B inside of A. B is called a descendant because it is inside of another element.  
+- A  *
+- A + B: This selects all B elements that *directly* follow A.
+- A ~ B: A ~ B selects all B that follow a A
+- A > B: selects all B that are a direct children A
+- :first-child: selects all first child elements  
+  - p:first-child
+  - div p:first-child
+- :only-child: You can select any element that is the only element inside of another one.   
+  - ex) plate pickle:only-child
+  - 벤토 위, 접시 위에 각각 하나 씩 피클이 있을 때, 접시 위에 있는 피클만 고르고 싶을 경우
+- :nth-child(A)/ nth-last-child(A)
+- :nth-of-type(2)/(odd)/(even)/(2n+3)
+- :first-of-type
+
+## 3) 레이아웃 : dispay & position
+
+### 3-1) display
+- inline: 컨텐츠를 꾸며준다  
+- inline-block: 한 줄에 여러개 넣는데, 상자로 변환된다. 즉, 컨텐츠 크기에 상관 없이 지정한 width, height 등에 맞추어서  
+- block: 한 줄
+
+### 3-2) position
+
+
+
+
+
+
+
 
 ### CSS 삽입 방법 두 가지
 a. <style> 태그  
