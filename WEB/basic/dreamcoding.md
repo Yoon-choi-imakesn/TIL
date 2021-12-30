@@ -81,7 +81,7 @@ a[href="naver.com] {
 - block: 한 줄
 
 ### 3-2) position
-<img src="position.png" alt="drawing" width="600"/>
+<img src="position.png" width="600"/>
 - static: 디폴트값
 - relative: 원래 있어야 하는 아이템에서 옮겨간 것
 - absolute: 내가 담겨있는 상자 안에서 움직인 것
