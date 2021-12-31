@@ -119,7 +119,42 @@ a[href="naver.com] {
 - align-self: center;  
   - item별로 아이템 정렬  
 
+## 5) Responxive Web
 
+### 5-1) 문법
+  ```
+  @media screen/speech/print/all and/not/only/, (min-width: 800px){
+    .container {
+      width: 50%;
+    }
+  }
+  ```
+  
+### 5-2) absolute VS relative
+- absolute: px
+- relative: % v* em rem
+
+### 5-3) 기준에 따른 사용
+#### a. parent VS browser
+  - parent: %, em
+  - browser: v*, rem
+#### b. box VS font
+  - box: %, v*
+  - font: re, rem
+
+### 5-4) em VS rem
+  - em: relative to parent element
+    ```
+    ex.
+    .parent {
+      font-size: 8em;   # 디폴트 값 16px * 8 = 128px
+    }
+    .child {
+      font-size: 0.5em;   # 128px * 0.5 = 64px
+    }
+    ```
+  - rem: relative to root element
+ 
 
 
 
