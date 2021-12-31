@@ -143,7 +143,7 @@ a[href="naver.com] {
   - font: re, rem
 
 ### 5-4) em VS rem
-  - em: relative to parent element
+  - em: relative to parent element (font-size)
     ```
     ex.
     .parent {
@@ -153,7 +153,40 @@ a[href="naver.com] {
       font-size: 0.5em;   # 128px * 0.5 = 64px
     }
     ```
-  - rem: relative to root element
+  - rem: relative to root element (font-size)
+
+ ```
+ # 사례
+        h1 {
+            font-size: 1.75rem;
+            color: palevioletred;
+            margin: auto;
+            text-align: center;  /* !!! */
+        }
+        .container {
+            display: flex;
+            padding: 2em; /*32px*/
+        }
+        /* uncalled properties at @media follow above normal properties */
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+        .component {
+            border: 1px solid palevioletred;
+            margin: 1em  /*16px: font-size 기준이기에*/
+        }
+        .title {
+            font-size: 1.5rem;
+            padding: 1em;
+            background-color: palevioletred;
+        }
+        .contents {
+            font-size: 1.125rem;
+            padding: 1em;
+        }
+```
  
 
 
