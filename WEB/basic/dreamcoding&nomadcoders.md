@@ -31,6 +31,8 @@ Cascading Style Sheet
 - Author style
 - User style
 - Browser
+[nomadcoder] 브라우저가 CSS를 읽을 때 위에서부터 순서대로 읽는다.  
+CSS를 직접 적는 것을 inline CSS, CSS 파일을 include 하는 것을 external CSS라고 한다. 만약 같은 selector를 가리키는 CSS가 여러개이면, 가장 마지막 스타일이 적용된다.  
 
 ## 2) Selector
 - universal *
@@ -75,17 +77,43 @@ a[href="naver.com] {
 ## 3) 레이아웃 : dispay & position
 
 ### 3-1) display
-- inline: 컨텐츠를 꾸며준다  
-- inline-block: 한 줄에 여러개 넣는데, 상자로 변환된다. 즉, 컨텐츠 크기에 상관 없이 지정한 width, height 등에 맞추어서  
-- block: 한 줄
+##### a. block
+  - 한 줄  
+  - [nomadcoder] box임  
+    -  옆에 아무것도 올 수 없다.  
+    -  margin, padding, border 있음 
+  - ex.div  
+##### b. inline 
+  - 컨텐츠를 꾸며준다    
+  - ex.span(: 짧은 글귀)  
+  - [nomadcoder] box 아님
+    - margin(좌우만), padding, border 있음  
+    - width, height 없다. 그래서 위, 아래에 margin을 가질 수 없다.    
+    - 이와 같은 상황에 margin을 위, 아래에 적용하고 싶다면, inline 요소를 block으로 바꿔줘야 한다.  
+##### c. inline-block  
+  - 한 줄에 여러개 넣는데, 상자로 변환된다. 즉, 컨텐츠 크기에 상관 없이 지정한 width, height 등에 맞추어서  
+  - [nomadcoder] block으로 인식하게 한다.  
+    - width, height 가질 수 있고, 그래서 사방 margin을 가질 수 있다. 
+    - 동시에 inline이어서 바로 옆에 다른 요소가 올 수도 있다.  
+    - 문제점 많음 (간격 있고, 정해진 형식 없다.): 창 크기가 달라지면 박스 크기 달라질 수 있다. 
+    - - **=> flex**
+
+#####  *[nomadcoders] Collapsing margin*  
+  - 상하에서만 발생함  
+  - child box 경계가 parent box 경계와 같을 때 발생
+  - 두 box의 margin이 하나가 된다, 큰 margin으로 통일됨.
+  - **=> padding**
 
 ### 3-2) position
-<img src="position.png" width="600"/>
-- static: 디폴트값
-- relative: 원래 있어야 하는 아이템에서 옮겨간 것
-- absolute: 내가 담겨있는 상자 안에서 움직인 것
-- fixed: 상자가 아니라, 페이지 상에서 옮겨간 것
-- sticky: 원래 자리에 있으면서 스크롤링해도 그 자리 유지
+<img src="position.png" width="600"/>  
+- static: 디폴트값    
+- relative: 원래 있어야 하는 아이템에서 옮겨간 것   
+- absolute: 내가 담겨있는 상자 안에서 움직인 것    
+- fixed: 상자가 아니라, 페이지 상에서 옮겨간 것    
+- sticky: 원래 자리에 있으면서 스크롤링해도 그 자리 유지    
+
+[nomadcoders]
+- 사용 용도: 레이아웃 차원이 아니라, 위치를 조금 옮기고 싶을 때 사용
 
 ## 4) Flexbox: container & item
 ### 4-1) main/cross axis
@@ -95,6 +123,7 @@ a[href="naver.com] {
   - flex-direction: row/column-reverse;  
   - <img src="row-reverse.png" width="400"/>
   - flex-wrap: nowrap/wrap-reverse;  
+    - [nomadcoders]  wrap 적용 안할 경우 자식 크기가 화면 사이즈에 따라 유동적으로 변화되나, 적용하면 initial 크기 유지  
 - justify-content:  
   - *main axis*
   -  flex-start/felx-end/center/**space-around/space-between/space-evenly**;   
@@ -118,6 +147,16 @@ a[href="naver.com] {
   - flex-basis: auto/30%;  
 - align-self: center;  
   - item별로 아이템 정렬  
+
+[nomadcoders] flex rules  
+**1. 자식이 아니라 부모에게 명시한다**  
+  - div의 부모를 display:flex로 만든다
+  - 부모에 display: flex를 명시해야, 부모 자식 관계가 생김 ex. font-size 부모에 명시해서 자식에 적용 가능  
+**2. main axis & cross axis**
+  - justify-content는 main axis를 따라 움직임  
+  - align-items는 cross axis를 따라 움직임
+
+  
 
 ## 5) Responxive Web
 
