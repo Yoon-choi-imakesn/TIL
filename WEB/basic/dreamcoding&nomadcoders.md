@@ -40,6 +40,7 @@ CSS를 직접 적는 것을 inline CSS, CSS 파일을 include 하는 것을 exte
 - ID #id
 - class .class
 - state :
+  - active, hover, focus, visited, focus-within(부모 요소에게 적용. 자신의 자식 요소 중 하나가 focused되었을 때 효과를 적용)
 - attribute []
 ```
 # state :
@@ -56,7 +57,7 @@ a[href="naver.com] {
 }
 ```
 
-### 다양한 연습 (https://flukeout.github.io/)
+###  Pseudo Selectors (다양한 연습 https://flukeout.github.io/)
 - A  B/ #id  A  
   - Descendant Selector: Select an element inside another element  
   - Selects all B inside of A. B is called a descendant because it is inside of another element.  
@@ -104,15 +105,23 @@ a[href="naver.com] {
   - 두 box의 margin이 하나가 된다, 큰 margin으로 통일됨.
   - **=> padding**
 
-### 3-2) position
+## 3-2) position 
+##### a. static
+  - 디폴트값          
+##### b. relative
+  - <strike>원래 있어야 하는 아이템에서 옮겨간 것</strike>   
+  - [nomadcoders] 가장 가까운 relative 부모를 기준으로 이동. position:relative; 를 해주면 부모가 된다. 없으면 body.  
+##### c. absolute
+  - 내가 담겨있는 상자 안에서 움직인 것     
+##### d. fixed
+  - 상자가 아니라, 페이지(윈도우) 상에서 옮겨간 것     
+  - [nomadcoders] 레이어를 부수고 제일 위에 있는 새로운 레이어가 생겨서 거기 위치하게 된다. 
+  - vh 크게 해서 스크롤 해도 따라오는 메뉴바에서 쓰임
+##### e. sticky 
+  - 원래 자리에 있으면서 스크롤링해도 그 자리 유지   
 <img src="position.png" width="600"/>  
-###### static: 디폴트값      
-###### relative: 원래 있어야 하는 아이템에서 옮겨간 것    
-###### absolute: 내가 담겨있는 상자 안에서 움직인 것  
-###### fixed: 상자가 아니라, 페이지(윈도우) 상에서 옮겨간 것  
-###### sticky: 원래 자리에 있으면서 스크롤링해도 그 자리 유지
-<br>  
-[nomadcoders]
+
+[nomadcoders]   
 - 사용 용도: 레이아웃 차원이 아니라, 위치를 조금 옮기고 싶을 때 사용
 
 ## 4) Flexbox: container & item
