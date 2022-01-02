@@ -245,8 +245,74 @@ a[href="naver.com] {
 딱히 이런 숫자를 따라하야 하는건 아니구요 :) 사용자가 쓸때 편리한지, 마우스로 쓸때 괜찮은지, 터치디바이스 (폰, 태블릿)에서 손가락으로 눌렀을때 적당한 크기 인지를 보고 일정한 값을 프로젝트에서 쓰는게 중요해요 🤗 
 머테리얼 디자인에 대해 더 공부해 보고 싶으시다면: https://material.io/design/layout/understanding-layout.html#usage  
 
+[nomadcoders]
+## 7) transition & transformation
 
+### 7-1) transition
+  #### a.  기본
+  - 어떤 상태에서 다른 상태로의 변화를 보내주는 애니매이션        
+  - rule1: transtion은 state가 없는 요소에 붙어야한다 (state에 있다면, state 해당 안되면 원상태로 바로 돌아감 ex. hover 떼면)      
+  - rule2: transtion 에 변화를 준것들은 state에 들어있는 것들, 즉 바뀌는 것들에 한정      
+  - 효과와 해당 코드 확인 사이트 https://matthewlein.com/tools/ceaser 
+  #### b.  문법
+  ```
+    a {
+      background-color: wheat;
+      color: tomato;
+      border-radius: 50px;
+      transition: background-color 3s ease-in-out, color 10s ease-in-out;
+    }
+    a:hover {
+      background-color: tomato;
+      color: wheat;
+    }
+  ```
+
+### 7-2) transformation
+  #### a.  기본
+  - 한 요소를 말 그대로 변형시킴, css로 3D까지 가능   
+  - transform은 box 차원이 아니라 pixel 차원이기에, padding margin값을 줘도 적용이 안된다   
+  - 즉 sibling들에게 영향을 끼치지 않는다 해당 요소만 적용을 시키기 때문 
+  #### b.  문법
+  ```
+    img {
+      border: 10px soild black;
+      border-radius: 50%;   <!-- 원 -->
+      transition: transform 10s ease-in-out;
+    }
+    img:hover {
+      transform: rotateY(90deg) scale (0.5)
+    }
+  ```
   
+  
+## 8) Animation - transition & transformation
+  #### a.  기본
+  - animation: 원하는만큼 만들고 재생 가능   
+  - cf) transition & transformation: state일 때만 효과   
+  - transform 이외 property들도 애니매이션으로 만들 수 있으나, transform을 쓰는걸 권한다. 일부 property는 애니매이션이 잘 안되기 때문.   
+
+  #### b.  문법
+  ```
+    @keyframes superSexyCoinFlip {
+      0% {
+        transform: rotateY(0);
+      }
+      50% {
+        transform: rotateY(180deg) translateY(100px);
+      }
+      100% {      <!-- 0%이랑 맞추어야 예쁨 -->
+        transform: rotateY(Y) translateY(0px);
+      }
+    }
+    img {
+      border: 10px soild black;
+      border-radius: 50%;   <!-- 원 -->
+      animation: superSexyCoinFlip 10s ease-in-out infinite;
+    }
+  ```
+
+
 
 # 3.JavaScript  
 
