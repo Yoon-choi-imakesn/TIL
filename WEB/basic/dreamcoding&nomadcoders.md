@@ -109,10 +109,10 @@ a[href="naver.com] {
 ##### a. static
   - 디폴트값          
 ##### b. relative
-  - <strike>원래 있어야 하는 아이템에서 옮겨간 것</strike>   
-  - [nomadcoders] 가장 가까운 relative 부모를 기준으로 이동. position:relative; 를 해주면 부모가 된다. 없으면 body.  
+  - 원래 있어야 하는 아이템에서 옮겨간 것   
 ##### c. absolute
   - 내가 담겨있는 상자 안에서 움직인 것     
+  - [nomadcoders] 가장 가까운 relative 부모를 기준으로 이동. position:relative; 를 해주면 부모가 된다. 없으면 body.  
 ##### d. fixed
   - 상자가 아니라, 페이지(윈도우) 상에서 옮겨간 것     
   - [nomadcoders] 레이어를 부수고 제일 위에 있는 새로운 레이어가 생겨서 거기 위치하게 된다. 
