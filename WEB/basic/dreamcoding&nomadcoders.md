@@ -1,4 +1,5 @@
-자료 출처: 드림코딩 유튜브
+이미지 출처: 드림코딩 유튜브(드림코드 마크 있을 시), https://flexboxfroggy.com, 자체 제작   
+내용 참조: 드림코딩 유튜브, 노마드코더 카카오 클론 강의
 
 # 1. HTML
 
@@ -106,19 +107,32 @@ a[href="naver.com] {
   - **=> padding**
 
 ## 3-2) position 
+https://developer.mozilla.org/en-US/docs/Web/CSS/position
+
+<img src="Containing_Block.png" width="600"/>  
+https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_Block
+
 ##### a. static
-  - 디폴트값          
+  - 디폴트값
+  - right, top 등 있어도 아무 영향 못 미침.  
+  - **position 변경 기준: bloack container(즉 부모)**        
 ##### b. relative
-  - 원래 있어야 하는 아이템에서 옮겨간 것   
-##### c. absolute
-  - 내가 담겨있는 상자 안에서 움직인 것     
+  - 원래 있어야 하는 아이템에서 옮겨간 것
+  - **position 변경 기준: bloack container(즉 부모)**     
+##### c. absolute  
   - [nomadcoders] 가장 가까운 relative 부모를 기준으로 이동. position:relative; 를 해주면 부모가 된다. 없으면 body.  
+  - [dreamcoding 이게 더 정확한 듯] 가장 가까운 부모 중 static이 아닌 부모 기준으로 이동. static이 아닌 한 사례가 rerlative   
+  - [MDN] **The element is removed from the normal document flow**, and no space is created for the element in the page layout. **It is positioned relative to its closest positioned ancestor(=static이 아닌 부모)**, if any; otherwise, it is placed relative to the initial containing block. Its final position is determined by the values of top, right, bottom, and left.   
+  - **position 변경 기준: 부모 중 static이 아닌 부모**   
 ##### d. fixed
   - 상자가 아니라, 페이지(윈도우) 상에서 옮겨간 것     
   - [nomadcoders] 레이어를 부수고 제일 위에 있는 새로운 레이어가 생겨서 거기 위치하게 된다. 
-  - vh 크게 해서 스크롤 해도 따라오는 메뉴바에서 쓰임
+  - vh 크게 해서 스크롤 해도 따라오는 메뉴바에서 쓰임 (생각해보면 자연스레 부모 기준 sticky 보다는 전체 viewport 기준 fixed가 전체 홈페이지 메뉴바에 어울림.)
+  - 부모 중 static이 아닌 부모   
+  - **position 변경 기준: viewport** 
 ##### e. sticky 
-  - 원래 자리에 있으면서 스크롤링해도 그 자리 유지   
+  - 원래 자리에 있으면서 스크롤링해도 그 자리 유지
+  - **position 변경 기준: bloack container(즉 부모) 그런데 이때 가장 근접한 부모 요소가 모든 요소를 말하는것이 아니고, 스크롤이 가능한 부모 요소중! **     
 <img src="position.png" width="600"/>  
 
 [nomadcoders]   
@@ -247,7 +261,6 @@ a[href="naver.com] {
 
 [nomadcoders]
 ## 7) transition & transformation
-
 ### 7-1) transition
   #### a.  기본
   - 어떤 상태에서 다른 상태로의 변화를 보내주는 애니매이션        
@@ -267,8 +280,8 @@ a[href="naver.com] {
       color: wheat;
     }
   ```
-
 ### 7-2) transformation
+https://developer.mozilla.org/en-US/docs/Web/CSS/transform
   #### a.  기본
   - 한 요소를 말 그대로 변형시킴, css로 3D까지 가능   
   - transform은 box 차원이 아니라 pixel 차원이기에, padding margin값을 줘도 적용이 안된다   
@@ -286,7 +299,7 @@ a[href="naver.com] {
   ```
   
   
-## 8) Animation - transition & transformation
+## 8) Animation <- transition & transformation
   #### a.  기본
   - animation: 원하는만큼 만들고 재생 가능   
   - cf) transition & transformation: state일 때만 효과   
@@ -311,6 +324,31 @@ a[href="naver.com] {
       animation: superSexyCoinFlip 10s ease-in-out infinite;
     }
   ```
+  
+  ## 9) 추가 내용
+  ### 9-1) Box Sizing
+  https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+  <img src="boxsizing.png" alt="drawing" height="600"/>
+  - box-sizing: border-box;
+    - border까지의 영역을 정하기 때문에, border+padding 넣은만큼 content box 크기는 작아진다.
+    - 통상적으로 패딩 넣을 때, 박스 안에 여백 만들기 때문에, 대부분  box-sizing: border-box; 이용
+  - box-sizing: content-box;
+    - content box를 결정하기에, content box 사이즈는 변하지 않는다. 
+### 9-2) Centerinig trick
+  <img src="centering.png" alt="drawing" height="600"/>
+### 9-3) Responsive background
+  ```
+  .box1 {
+  background-image: url('');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  
+  background: center/cover no-repeat
+    url('');
+  }
+  ```
+  
 
 
 
