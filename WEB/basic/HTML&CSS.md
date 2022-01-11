@@ -99,6 +99,11 @@ a[href="naver.com] {
     - 동시에 inline이어서 바로 옆에 다른 요소가 올 수도 있다.  
     - 문제점 많음 (간격 있고, 정해진 형식 없다.): 창 크기가 달라지면 박스 크기 달라질 수 있다. 
     - - **=> flex**
+   - [Portfolio Website]    
+    - <img src="img/inlineblock.png" alt="drawing" width="600"/>   
+    - inlineblock이 필요한 대표적인 경우    
+    - widht, height를 설정할 경우 위에서 말한 문제점이 해결됨   
+    - 오히려 flex를 적용할 경우 해결될 수 없는 문제임   
 
 #####  *[nomadcoders] Collapsing margin*  
   - 상하에서만 발생함  
