@@ -1,13 +1,10 @@
 #### [Dreamcoding 자바스크립트 기초 강의]
 
 
-
-
 # 1. 자바스크립트의 역사와 현재 그리고 미래
 - 10일만에 만든 유연한 언어  
 - 다른 언어 기준 비상식적인 일들이 가능함 ex) 선언되지 않은 변수 값 할당 가능   
-
-
+<br>
 
 
 # 2. 콘솔에 출력, script async 와 defer의 차이점
@@ -40,8 +37,7 @@ d. defer
 ## 4) 'use strict';
 - ES5에서 시작    
 - 유연함에서 생기는 비상식적인 일 불가능하도록 막음 ex) 선언되지 않은 변수 값 할당 가능   
-  
-  
+  <br>
   
   
 # 3. data types, let vs var, hoisting
@@ -134,8 +130,7 @@ text = 1; // => type: number
 text = '7' + 5; // => valueu: 75, type: string   
 text = '8' / '2'; => valueu: 4, type: number   
 - 이런 식으로 혼동이 생겨서 type을 지정하는 것이 typescript   
-
-
+<br>
 
 
 # 4. operator
@@ -259,8 +254,7 @@ switch (browser) {
     break;
 }
 '''
-
-
+<br>
 
 
 # 5. loops
@@ -313,4 +307,299 @@ for (let i = 0; i < 10; i++) {
 ## 5) break, continue
 - break: loop 완전히 끝냄   
 - continue: 지금 것만 건너뜀   
+<br>
 
+
+# 6. function
+## 1) 기본
+- fundamental building block in the program   
+- subprogram can be used multiple times   
+- performs a task or calculates a value   
+
+## 2) Function declaration
+- function name(param1, param2) { body... return; }   
+- **one function === one thing**   
+- naming: doSomething, command, verb   
+- e.g. createCardAndPoint -> createCard, createPoint   
+- **function is object in JS** 즉, 변수에 할당할 수 있고, 파라미터로 전달도 되고, return도 가능
+''' 
+function printHello() {
+  console.log('Hello');
+}
+printHello();
+// => 파라미터로 메세지 전달
+function log(message) {
+  console.log(message);
+}
+log('Hello@');
+log(1234);
+''' 
+## 3) Parameters
+- primitive parameters: passed by value   
+- object parameters: passed by reference   
+''' 
+function changeName(obj) {
+  obj.name = 'coder';
+}
+const ellie = { name: 'ellie' };
+changeName(ellie);
+console.log(ellie);
+''' 
+
+## 4) Default parameters (added in ES6)
+''' 
+function showMessage(message, from = 'unknown') {
+  console.log(`${message} by ${from}`);
+}
+showMessage('Hi!');
+''' 
+
+## 5) Rest parameters (added in ES6)
+- 배열 형태로 저장됨   
+''' 
+function printAll(...args) {
+  //배열 출력 방법_1
+  for (let i = 0; i < args.length; i++) {
+    console.log(args[i]);
+  }
+  //배열 출력 방법_2
+  for (const arg of args) {
+    console.log(arg);
+  }
+  //배열 출력 방법_3
+  args.forEach((arg) => console.log(arg));
+}
+printAll('dream', 'coding', 'ellie');
+''' 
+
+## 6) Local scope
+- 밖에서는 안이 보이지 않고,안에서만 밖을 볼 수 있다.   
+
+## 7) Return a value
+''' 
+function sum(a, b) {
+  return a + b;
+}
+''' 
+
+## 8) [현업팁] Early return, early exit
+''' 
+// bad
+function upgradeUser(user) {
+  if (user.point > 10) {
+    // long upgrade logic...
+  }
+}
+// good
+function upgradeUser(user) {
+  if (user.point <= 10) {
+    return;
+  }
+  // long upgrade logic...
+}
+''' 
+<br>
+
+
+# 7.  함수 추가 (Function expression, Arrow function 등)
+
+## 1) First-class function
+- functions are treated like any other variable   
+- can be assigned as a value to variable    
+- can be passed as an argument to other functions.   
+- can be returned by another function   
+- 이걸 가능하게 하는 것이 Function expression
+
+## 2) Function expression
+- a function declaration can be called earlier than it is defined. (hoisted)   
+- a function expression is created when the execution reaches it.
+''' 
+const print = function () { // anonymous function: 이름 없이 필요한 부분만 작성해서 변수에 할당할 수 있다. cf) named function
+  console.log('print');
+};
+print();
+const printAgain = print;
+printAgain();
+const sumAgain = sum;
+console.log(sumAgain(1, 3));
+''' 
+
+## 3) Callback function using function expression
+''' 
+function randomQuiz(answer, printYes, printNo) {
+  if (answer === 'love you') {
+    printYes();
+  } else {
+    printNo();
+  }
+}
+// a. anonymous function
+const printYes = function () {
+  console.log('yes!');
+};
+// b. named function
+// - better debugging in debugger's stack traces
+// - recursions
+const printNo = function print() {
+  console.log('no!');
+};
+randomQuiz('wrong', printYes, printNo);
+randomQuiz('love you', printYes, printNo);
+''' 
+
+## 4) Arrow function
+- always anonymous   
+// const simplePrint = function () {
+//   console.log('simplePrint!');
+// };
+const simplePrint = () => console.log('simplePrint!');
+const add = (a, b) => a + b;
+const simpleMultiply = (a, b) => {
+  // do something more
+  return a * b;
+};
+
+## 5) IIFE: Immediately Invoked Function Expression
+- 선언과 동시에 호출 
+(function hello() {
+  console.log('IIFE');
+})();
+<br>
+
+
+# 8.  _class_ vs object
+
+## 1) 기본
+- Object-oriendted programming  
+- class: template   
+- object: instance of a class  
+- JavaScript classes   
+  - introduced in ES6   
+  - syntactical sugar over prototype-based inheritance   
+
+## 2) Class declarations
+'''
+class Person {
+  // constructor
+  constructor(name, age) {
+    // fields
+    this.name = name;
+    this.age = age;
+  }
+  // methods
+  speak() {
+    console.log(`${this.name}: hello!`);
+  }
+}
+//new: 새로운 object 만들 때
+const ellie = new Person('ellie', 20);
+console.log(ellie.name);
+console.log(ellie.age);
+ellie.speak(); 
+''' 
+
+## 3) Getter and setters: keyword
+- 잘못된 파라미터 값이 입력되는 문제를 방지하기 위해   
+- age getter를 정의하는 순간: this.age는 메모리에 올라가있는 데이터를 읽어오는 것이 아니라, getter를 호출하게 된다.   
+- age setter를 정의하는 순간: 값을 할당할 때(this.age = age;), 메모리에 올라가있는 값을 할당하는 것이 아니라, setter를 호출하게 된다.     
+- 다른 말로, setter 안에서 전달된 value를 this.age에 할당할 때 메모리의 값을 업데이트하는 것이 아니라, setter를 호출하게 된다. 즉, setter가 setter를 호출하는 일이 무한정 반복.   
+''' 
+class User { 
+  constructor(firstName, lastName, age) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+  }
+
+  get age() {
+    return this._age;
+  //return this.age;
+  }
+
+  set age(value) {
+    // if (value < 0) {
+    //   throw Error('age can not be negative');
+    // }
+    this._age = value < 0 ? 0 : value;
+  //this.age = value
+  }
+}
+const user1 = new User('Steve', 'Job', -1);
+console.log(user1.age);
+''' 
+
+## 4) Fields (public, private)
+- Too soon! (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Class_fields)   
+''' 
+class Experiment {
+  publicField = 2;
+  #privateField = 0;
+}
+const experiment = new Experiment();
+console.log(experiment.publicField);
+console.log(experiment.privateField);
+''' 
+
+## 5) Static properties and methods
+- Too soon!   
+''' 
+class Article {
+  static publisher = 'Dream Coding';
+  constructor(articleNumber) {
+    this.articleNumber = articleNumber;
+  }
+
+  static printPublisher() {
+    console.log(Article.publisher);
+  }
+}
+const article1 = new Article(1);
+const article2 = new Article(2);
+console.log(Article.publisher);
+Article.printPublisher();
+''' 
+
+## 6) Inheritance
+- a way for one class to extend another class.    
+''' 
+class Shape {
+  constructor(width, height, color) {
+    this.width = width;
+    this.height = height;
+    this.color = color;
+  }
+
+  draw() {
+    console.log(`drawing ${this.color} color!`);
+  }
+
+  getArea() {
+    return this.width * this.height;
+  }
+}
+
+class Rectangle extends Shape {}
+class Triangle extends Shape {
+  // 필요한 함수만 overwritting(재정의) 가능
+  //  super 사용시 기존 method도 사용 가능
+  draw() {
+    super.draw();
+    console.log('🔺');
+  }
+  getArea() {
+    return (this.width * this.height) / 2;
+  }
+}
+''' 
+
+## 7) Class checking: instanceOf
+- 전자가 후자의 instance인가를   
+- boolean으로 판별   
+''' 
+console.log(rectangle instanceof Rectangle);
+console.log(triangle instanceof Rectangle);
+console.log(triangle instanceof Triangle);
+console.log(triangle instanceof Shape);
+console.log(triangle instanceof Object); // JS에서 만든 모든 object class를 JS object를 상속한 것
+console.log(triangle.toString()); // 그래서 이런 것도 가능함  
+''' 
