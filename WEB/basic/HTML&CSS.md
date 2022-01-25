@@ -125,6 +125,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_Block
   - 원래 있어야 하는 아이템에서 옮겨간 것
   - **position 변경 기준: bloack container(즉 부모)**     
 ##### c. absolute  
+  - absolute는 static, relative와 다르게 일반적인 문서 흐름에서 제외됩니다.
   - [nomadcoders] 가장 가까운 relative 부모를 기준으로 이동. position:relative; 를 해주면 부모가 된다. 없으면 body.  
   - [dreamcoding 이게 더 정확한 듯] 가장 가까운 부모 중 static이 아닌 부모 기준으로 이동. static이 아닌 한 사례가 rerlative   
   - [MDN] **The element is removed from the normal document flow**, and no space is created for the element in the page layout. **It is positioned relative to its closest positioned ancestor(=static이 아닌 부모)**, if any; otherwise, it is placed relative to the initial containing block. Its final position is determined by the values of top, right, bottom, and left.   
@@ -151,7 +152,8 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_Block
   - flex-direction: row/column-reverse;  
   - <img src="row-reverse.png" width="400"/>
   - flex-wrap: nowrap/wrap-reverse;  
-    - [nomadcoders]  wrap 적용 안할 경우 자식 크기가 화면 사이즈에 따라 유동적으로 변화되나, 적용하면 initial 크기 유지  
+    - [nomadcoders]  wrap 적용 안할 경우 자식 크기가 화면 사이즈에 따라 유동적으로 변화되나, 적용하면 initial 크기 유지 
+    - [nomadcoders Challenges]  부모 width 지정할 경우 효과적 
 - justify-content:  
   - *main axis*
   -  flex-start/felx-end/center/**space-around/space-between/space-evenly**;   
